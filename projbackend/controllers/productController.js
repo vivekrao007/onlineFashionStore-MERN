@@ -63,12 +63,12 @@ exports.getProduct = (req, res) => {
 };
 
 // middleware
-exports.image = (req, res) => {
+exports.image = (req, res, next) => {
   if (req.product.image.data) {
     res.set("Content-Type", req.product.image.contentType);
-    return res.json(req.product.image.data);
-    next();
+    return res.send(req.product.image.data);
   }
+  next();
 };
 
 exports.deleteProduct = (req, res) => {

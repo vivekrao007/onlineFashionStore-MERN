@@ -125,10 +125,10 @@ export default function UpdateProduct({ match }) {
     if (loading) {
       return (
         <div
-          class="spinner-border spinner-border-sm ml-2 mt-1 float-right"
+          className="spinner-border spinner-border-sm ml-2 mt-1 float-right"
           role="status"
         >
-          <span class="sr-only">Loading...</span>
+          <span className="sr-only">Loading...</span>
         </div>
       );
     }

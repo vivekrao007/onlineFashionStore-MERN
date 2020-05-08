@@ -10,7 +10,7 @@ export default function AddProduct() {
     description: "",
     price: "",
     stock: "",
-    photo: "",
+    image: "",
     categories: [],
     category: "",
     loading: false,
@@ -23,7 +23,7 @@ export default function AddProduct() {
     description,
     price,
     stock,
-    photo,
+    image,
     categories,
     category,
     loading,
@@ -49,7 +49,7 @@ export default function AddProduct() {
   }
 
   const handleChange = (name) => (event) => {
-    const value = name === "photo" ? event.target.files[0] : event.target.value;
+    const value = name === "image" ? event.target.files[0] : event.target.value;
     formData.set(name, value);
     setValues({ ...values, [name]: value });
   };
@@ -68,7 +68,7 @@ export default function AddProduct() {
             name: "",
             description: "",
             price: "",
-            photo: "",
+            image: "",
             stock: "",
             loading: false,
             createdProduct: res.name,
@@ -103,10 +103,10 @@ export default function AddProduct() {
     if (loading) {
       return (
         <div
-          class="spinner-border spinner-border-sm ml-2 mt-1 float-right"
+          className="spinner-border spinner-border-sm ml-2 mt-1 float-right"
           role="status"
         >
-          <span class="sr-only">Loading...</span>
+          <span className="sr-only">Loading...</span>
         </div>
       );
     }
@@ -118,9 +118,9 @@ export default function AddProduct() {
         <div className="form-group">
           <label className="btn btn-block btn-info">
             <input
-              onChange={handleChange("photo")}
+              onChange={handleChange("image")}
               type="file"
-              name="photo"
+              name="image"
               accept="image"
               placeholder="choose a file"
             />
@@ -129,7 +129,7 @@ export default function AddProduct() {
         <div className="form-group">
           <input
             onChange={handleChange("name")}
-            name="photo"
+            name="name"
             className="form-control"
             placeholder="Name"
             value={name}
@@ -138,7 +138,7 @@ export default function AddProduct() {
         <div className="form-group">
           <textarea
             onChange={handleChange("description")}
-            name="photo"
+            name="description"
             className="form-control"
             placeholder="Description"
             value={description}
