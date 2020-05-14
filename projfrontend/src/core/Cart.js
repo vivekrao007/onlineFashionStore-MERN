@@ -12,7 +12,7 @@ export default function Cart() {
     setProducts(loadCart());
   }, [reload]);
 
-  function loadAllProducts() {
+  function loadAllProducts(products) {
     return (
       <div>
         <h2>load products</h2>
@@ -42,7 +42,13 @@ export default function Cart() {
   return (
     <Base title="Cart">
       <div className="row text-center">
-        <div className="col-6">{loadAllProducts()}</div>
+        <div className="col-6">
+          {products.length > 0 ? (
+            loadAllProducts(products)
+          ) : (
+            <h2>no products in cart</h2>
+          )}
+        </div>
         <div className="col-6">
           <StripeGateway
             products={products}

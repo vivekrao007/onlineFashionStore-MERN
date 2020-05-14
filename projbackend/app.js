@@ -9,7 +9,6 @@ const port = process.env.PORT;
 
 // note middleware should always be in top of code.
 // middleware
-app.use("/api/stripepayment", bodyParser.raw({ type: "*/*" }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());

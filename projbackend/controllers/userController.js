@@ -58,7 +58,7 @@ exports.pushOrderInPurchaseList = (req, res, next) => {
   let purchases = [];
   req.body.order.products.forEach((product) => {
     purchases.push({
-      id: products._id,
+      id: product._id,
       name: product.name,
       description: product.description,
       category: product.category,

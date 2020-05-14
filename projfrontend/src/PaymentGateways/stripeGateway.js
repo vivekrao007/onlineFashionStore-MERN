@@ -3,7 +3,7 @@ import { isAuthenticated } from "../auth/helper";
 import { emptyCart, loadCart } from "../core/helper/CartHelper";
 import { Link } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
-import { API, STRIPE_PUBLISHABLE_KEY } from "../backend";
+import { API } from "../backend";
 import { createOrder } from "../core/helper/OrderHelper";
 
 export default function StripeGateway({
@@ -17,7 +17,7 @@ export default function StripeGateway({
     error: "",
     address: "",
   });
-  //   const { user, token } = isAuthenticated();
+  const userData = isAuthenticated();
   function finalPrice() {
     let amount = 0;
     amount = products.reduce((accumulator, product) => {
@@ -38,8 +38,37 @@ export default function StripeGateway({
       method: "POST",
       headers,
     })
+      .then((response) => {
+        return response.json();
+      })
       .then((res) => {
-        console.log("res : ", res);
+        if (!res.status) {
+          setData({
+            ...data,
+            error: res.raw.message,
+            loading: false,
+            success: false,
+          });
+        }
+        if (res.status === "succeeded") {
+          const orderData = {
+            products: products,
+            transaction_id: res.id,
+            amount: res.amount / 100,
+          };
+          createOrder(userData.user.id, userData.token, orderData)
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+
+          emptyCart(() => {
+            //
+          });
+          setReload(!reload);
+        }
       })
       .catch((err) => console.log("err : ", err));
   }
