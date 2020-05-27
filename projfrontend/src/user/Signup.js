@@ -40,44 +40,60 @@ export default function Signup() {
 
   function signUpForm() {
     return (
-      <div className="row">
-        <div className="col-md-4 offset-md-4 text-left">
+      <div className="connect-box">
+        <div className="connect-box-content">
+          <div className="connect-box-header">
+            <h2>
+              Register <i className="fas fa-sign-in-alt fa-xs"></i>
+            </h2>
+          </div>
           <form>
-            <div className="form-group">
-              <label className="text-light">Name</label>
+            <div className="connect-box-input-group">
+              <label className="star">Name</label>
               <input
-                className="form-control"
                 type="text"
                 onChange={handleChange("firstname")}
                 value={firstname}
+                placeholder="enter firstname"
               />
             </div>
-            <div className="form-group">
-              <label className="text-light">Email</label>
+            <div className="connect-box-input-group">
+              <label className="star">Email</label>
               <input
-                className="form-control"
                 type="email"
                 onChange={handleChange("email")}
                 value={email}
+                placeholder="enter email"
               />
             </div>
-            <div className="form-group">
-              <label className="text-light">Password</label>
+            <div className="connect-box-input-group">
+              <label className="star">Password</label>
               <input
-                className="form-control"
                 type="password"
                 onChange={handleChange("password")}
                 value={password}
+                placeholder="enter password"
               />
             </div>
             <div>
-              <button className="btn btn-success btn-block" onClick={submit}>
-                Submit
+              <button
+                className="btn connect-box-btn-submit btn-block"
+                onClick={submit}
+              >
+                Register <i className="fas fa-user-plus fa-xs"></i>
               </button>
             </div>
           </form>
           {successMessage()}
           {errorMessage()}
+          <div>
+            <p>have an account ? </p>
+            <h6>
+              <Link to="/signin">
+                Login Here <i className="fas fa-external-link-alt"></i>
+              </Link>
+            </h6>
+          </div>
         </div>
       </div>
     );
@@ -105,10 +121,5 @@ export default function Signup() {
     );
   }
 
-  return (
-    <Base title="signup page" description="page for user to sign up">
-      {signUpForm()}
-      <p className="text-white text-center">{JSON.stringify(values)}</p>
-    </Base>
-  );
+  return <Base>{signUpForm()}</Base>;
 }

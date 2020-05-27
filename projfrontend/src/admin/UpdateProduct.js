@@ -218,11 +218,7 @@ export default function UpdateProduct({ match }) {
 
   //
   return (
-    <Base
-      title="Add Product"
-      description="update product"
-      className="container bg-info p-4"
-    >
+    <Base>
       <div className="row bg-white rounded">
         <div className="col-md-1"></div>
         {goHome()}

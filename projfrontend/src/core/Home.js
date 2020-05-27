@@ -23,7 +23,7 @@ export default function Home() {
   }
 
   return (
-    <Base title="Home Page" description="just home page">
+    <Base>
       <div className="row text-center">
         <h1 className="text-white">All Products</h1>
         <div className="row">

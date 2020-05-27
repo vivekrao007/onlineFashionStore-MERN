@@ -44,7 +44,7 @@ export default function ManageProducts() {
   //
   //TODO:work on update category
   return (
-    <Base title="Welcome admin" description="Manage products here">
+    <Base>
       <div className="row">
         <div className="col-3 offset-2">{goHome()}</div>
       </div>

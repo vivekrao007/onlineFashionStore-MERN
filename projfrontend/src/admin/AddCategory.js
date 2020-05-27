@@ -72,11 +72,7 @@ export default function AddCategory() {
   }
 
   return (
-    <Base
-      title="Create Category"
-      description="Add new category"
-      className="container bg-info p-4"
-    >
+    <Base>
       <div className="row bg-white rounded">
         <div className="col-md-1"></div>
         {goHome()}

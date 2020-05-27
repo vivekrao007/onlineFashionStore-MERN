@@ -61,11 +61,7 @@ export default function AdminDashBoard() {
   }
 
   return (
-    <Base
-      title="admin dashboard"
-      description="manage products"
-      className="container bg-info p-4"
-    >
+    <Base>
       <div className="row">
         <div className="col-3">{leftSection()}</div>
         <div className="col-9">{rightSection()}</div>

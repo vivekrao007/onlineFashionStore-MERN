@@ -1,11 +1,191 @@
-.jumbotron,
-.nav :hover {
+/* color palette used : https://coolors.co/002642-840032-e59500-776d6d-02040f */
+:root {
+  --primary: #e5dada;
+  --primary-hover: #89a3b1;
+  --Info: #e5dada;
+  --success: #57a96d;
+  --warning: #d49935;
+  --danger: #f44336;
+  --nav-item-color: #002642;
+}
+
+.jumbotron :hover {
   border-radius: 0px;
 }
 
 body {
-  background: #343a40;
+  background: var(--Info);
 }
+
+/*   #### Navigation bar styles  */
+/* start */
+.header {
+  position: sticky;
+  top: 0px;
+  background-color: var(--primary);
+  /* box-shadow: 0 4px 3px -3px #002642; */
+}
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary);
+  color: var(--nav-item-color);
+  margin: auto;
+  width: 70%;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  margin: 0.5rem;
+}
+
+.navbar-links {
+  height: 100%;
+}
+
+.navbar-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  list-style: none;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.navbar-links li a {
+  display: block;
+  text-decoration: none;
+  color: #002642;
+}
+
+.navbar-links li:hover {
+  background-color: var(--primary-hover);
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    width: 95%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+}
+
+/* END */
+
+/* ### Sign in page styles */
+/* Start */
+.connect-box {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  margin: auto;
+}
+.connect-box-content {
+  width: 375px;
+  height: 600px;
+  background-color: #002642;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0 8px 6px -6px #709ab1;
+}
+.connect-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.connect-box form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.connect-box-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.connect-box-input-group input {
+  width: 300px;
+  height: 40px;
+  background-color: #e6ebef;
+  border-radius: 5px;
+  outline-style: none;
+  padding-left: 10px;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 1);
+}
+.connect-box-input-group label {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+.connect-box-btn-submit {
+  width: 300px;
+  margin-top: 15px;
+  background-color: var(--success);
+  color: #e6ebef;
+}
+
+.star::after {
+  content: " *";
+  color: var(--danger);
+}
+/* END */
 
 /* footer {
   position: absolute;

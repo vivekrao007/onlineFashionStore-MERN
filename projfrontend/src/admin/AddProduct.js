@@ -196,11 +196,7 @@ export default function AddProduct() {
 
   //
   return (
-    <Base
-      title="Add Product"
-      description="create new product"
-      className="container bg-info p-4"
-    >
+    <Base>
       <div className="row bg-white rounded">
         <div className="col-md-1"></div>
         {goHome()}

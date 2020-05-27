@@ -37,7 +37,7 @@ export default function ManageCategories() {
     e.preventDefault();
   };
   return (
-    <Base title="Welcome admin" description="Manage categories here">
+    <Base>
       <div className="row">
         <div className="col-3 offset-2">{goHome()}</div>
       </div>

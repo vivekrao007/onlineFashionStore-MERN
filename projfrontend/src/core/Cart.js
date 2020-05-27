@@ -40,7 +40,7 @@ export default function Cart() {
   }
 
   return (
-    <Base title="Cart">
+    <Base>
       <div className="row text-center">
         <div className="col-6">
           {products.length > 0 ? (

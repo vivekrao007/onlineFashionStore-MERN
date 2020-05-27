@@ -93,3 +93,12 @@ export function isUser() {
     return false;
   }
 }
+
+export function userDetails() {
+  if (localStorage.getItem("jwt")) {
+    let { user } = JSON.parse(localStorage.getItem("jwt"));
+    return user;
+  } else {
+    return {};
+  }
+}

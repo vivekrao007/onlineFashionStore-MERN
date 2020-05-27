@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Base from "../core/Base";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { signin, authenticate, isAuthenticated } from "../auth/helper";
 
 export default function Signin() {
   const [values, setValues] = useState({
-    email: "tommy.shelby@gmail.com", //tommy.shelby@gmail.com //ter@gm.com
-    password: "tommyshelby", //tommyshelby //test@123
+    email: "ter@gm.com", //tommy.shelby@gmail.com //ter@gm.com
+    password: "test@123", //tommyshelby //test@123
     error: "",
     loading: false,
     redirected: false,
@@ -56,35 +56,52 @@ export default function Signin() {
   };
   function signInForm() {
     return (
-      <div className="row">
-        <div className="col-md-4 offset-md-4 text-left">
-          {loadingMessage()}
+      <div className="connect-box">
+        {/* {loadingMessage()} */}
+        <div className="connect-box-content">
+          <div className="connect-box-header">
+            <h2>
+              Login <i className="fas fa-sign-in-alt fa-xs"></i>
+            </h2>
+          </div>
           <form>
-            <div className="form-group">
-              <label className="text-light">Email</label>
+            <div className="connect-box-input-group">
+              <label>Email</label>
               <input
-                className="form-control"
                 type="email"
                 value={email}
                 onChange={handleChange("email")}
+                placeholder="enter your email"
               />
             </div>
-            <div className="form-group">
-              <label className="text-light">Password</label>
+            <div className="connect-box-input-group">
+              <label>Password</label>
               <input
-                className="form-control"
                 type="password"
                 value={password}
                 onChange={handleChange("password")}
+                placeholder="enter your password"
               />
             </div>
             <div>
-              <button className="btn btn-success btn-block" onClick={submit}>
-                Submit
+              <button
+                className="btn btn-block connect-box-btn-submit"
+                onClick={submit}
+              >
+                Login <i className="fas fa-arrow-circle-right fa-xs"></i>
               </button>
+              {errorMessage()}
             </div>
           </form>
-          {errorMessage()}
+
+          <div>
+            <p>Do not have an account ? </p>
+            <h6>
+              <Link to="/signup">
+                create an account <i className="fas fa-external-link-alt"></i>
+              </Link>
+            </h6>
+          </div>
         </div>
       </div>
     );
@@ -101,16 +118,13 @@ export default function Signin() {
 
   function errorMessage() {
     return (
-      <div
-        className="alert alert-danger mt-2"
-        style={{ display: error ? "" : "none" }}
-      >
+      <span className="text-danger" style={{ display: error ? "" : "none" }}>
         {error}
-      </div>
+      </span>
     );
   }
   return (
-    <Base title="signin page" description="page for user to sign in">
+    <Base>
       {signInForm()}
       {redirect()}
     </Base>
