@@ -24,24 +24,39 @@ export default function Card({
     }
   }
   return (
-    <div className="card text-white bg-dark border border-info ">
-      <div className="card-header lead">{product.name}</div>
-      <div className="card-body">
-        <ImageHelper product={product} />
-        <p className="lead bg-success font-weight-normal text-wrap">
-          {product.description}
-        </p>
-        <p className="btn btn-success rounded  btn-sm px-4">
-          $ {product.price}
-        </p>
-        <div className="row">
+    <div className="card">
+      <ImageHelper product={product} />
+      <div className="card-content">
+        {/* <ImageHelper product={product} /> */}
+        <div className="row m-0">
           <div className="col-12">
+            <strong>
+              <h5>{product.name}</h5>
+            </strong>
+          </div>
+        </div>
+        <div className="row m-0">
+          <div className="col-12 text-secondary">
+            <p>{product.description}</p>
+          </div>
+        </div>
+        <div className="row m-0">
+          <div className="col">
+            <p className="product-price">${product.price}</p>
+          </div>
+        </div>
+
+        <div className="row m-0">
+          <div className="col-12 card-button-group">
+            <button className="btn btn-sm card-btn">
+              Add to Cart <i class="fas fa-cart-plus"></i>
+            </button>
             {addToCart && (
               <button
                 onClick={addProductToCart}
-                className="btn btn-block btn-outline-success mt-2 mb-2"
+                className="btn btn-sm card-btn"
               >
-                Add to Cart
+                Buy Now <i className="fas fa-external-link-alt"></i>
               </button>
             )}
             {getRedirect(redirect)}

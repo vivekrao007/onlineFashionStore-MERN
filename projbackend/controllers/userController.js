@@ -41,7 +41,6 @@ exports.updatedUser = (req, res) => {
 };
 
 exports.userPurchaseList = (req, res) => {
-  console.log(req.profile);
   Order.find({ user: req.profile._id })
     .pouplate("user", "_id firstname")
     .exec((err, order) => {

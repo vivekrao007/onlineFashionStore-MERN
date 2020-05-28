@@ -170,6 +170,7 @@ body {
   padding-left: 10px;
   box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 1);
 }
+
 .connect-box-input-group label {
   font-size: 1.2rem;
   margin-top: 10px;
@@ -187,6 +188,32 @@ body {
 }
 /* END */
 
+/* ### Home page styles */
+/* start */
+.product-price {
+  font-size: 30px;
+  font-style: italic;
+}
+.card-content {
+  /* background-color: rgb(206, 190, 190); */
+  background-color: var(--Info);
+  color: var(--nav-item-color);
+  padding-bottom: 10px;
+}
+.card {
+  box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.2),
+    -8px -8px 18px 0 rgba(255, 255, 255, 0.55);
+}
+
+.card-btn {
+  border: 1px solid var(--nav-item-color);
+}
+.card-button-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/* end */
 /* footer {
   position: absolute;
   bottom: 0px;

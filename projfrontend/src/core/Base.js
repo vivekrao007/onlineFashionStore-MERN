@@ -5,7 +5,7 @@ export default function Base({ children }) {
   return (
     <div>
       <Navigation></Navigation>
-      <div className="container-fluid">
+      <div className="container">
         <div>{children}</div>
       </div>
       {/* <footer className="footer bg-dark mt-auto py-3">
