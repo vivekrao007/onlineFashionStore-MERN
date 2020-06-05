@@ -18,17 +18,17 @@ export default function Home() {
         setError(res.err);
       } else {
         setProducts(res);
+        //groupProductsByCategory(res);
       }
     });
   }
-
   return (
     <Base>
       <div className="row mt-4">
         <div className="row m-0">
           {products.map((product, index) => {
             return (
-              <div key={index} className="col-3  mb-1">
+              <div key={index} className="col-lg-3 col-md-1 col-sm-1 mb-5">
                 <Card product={product} />
               </div>
             );

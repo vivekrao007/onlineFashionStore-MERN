@@ -93,7 +93,8 @@ export default function StripeGateway({
 
   return (
     <div>
-      <h2>stripe {finalPrice()}</h2>
+      <h2>pay with stripe</h2>
+      <div>total amount : ${finalPrice()}</div>
       {ShowStripeButton()}
     </div>
   );

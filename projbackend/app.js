@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const port = process.env.PORT;
+const path = require("path");
 
 // note middleware should always be in top of code.
 // middleware
@@ -42,6 +43,14 @@ mongoose
     console.log("ERROR IN DB CONNECTION");
   });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("PROJFRONTEND/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, "PROJFRONTEND", "build", "index.html")
+    );
+  });
+}
 // server start up
 app.listen(port, () => {
   console.log("app is running on port : " + port);

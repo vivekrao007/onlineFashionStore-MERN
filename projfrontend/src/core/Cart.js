@@ -15,7 +15,6 @@ export default function Cart() {
   function loadAllProducts(products) {
     return (
       <div>
-        <h2>load products</h2>
         {products.map((product, index) => {
           return (
             <Card

@@ -13,10 +13,14 @@ export default function Card({
   const [redirect, setRedirect] = useState(false);
   const [count, setCount] = useState(product.count);
 
-  function addProductToCart() {
+  function buyProduct() {
     addItemToCart(product, () => {
       setRedirect(true);
     });
+  }
+
+  function addProductToCart() {
+    addItemToCart(product, () => {});
   }
   function getRedirect(redirect) {
     if (redirect) {
@@ -48,14 +52,16 @@ export default function Card({
 
         <div className="row m-0">
           <div className="col-12 card-button-group">
-            <button className="btn btn-sm card-btn">
-              Add to Cart <i class="fas fa-cart-plus"></i>
-            </button>
             {addToCart && (
               <button
-                onClick={addProductToCart}
                 className="btn btn-sm card-btn"
+                onClick={addProductToCart}
               >
+                Add to Cart <i className="fas fa-cart-plus"></i>
+              </button>
+            )}
+            {addToCart && (
+              <button onClick={buyProduct} className="btn btn-sm card-btn">
                 Buy Now <i className="fas fa-external-link-alt"></i>
               </button>
             )}
